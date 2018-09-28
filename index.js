@@ -41,9 +41,7 @@ const assignSantas = (array) => {
 
 
 const assignSantas2 = (array) => {
-  let matches = {
-    year: 1
-  };
+  let years = {};
 
   if(!array || !array.length) {
     return null;
@@ -51,25 +49,35 @@ const assignSantas2 = (array) => {
 
   let santas = array.slice();
 
-  let years = 1
-  while (years < 6) {
+  let year = 1
+  while (year < 6) {
+    let matches = {};
     for(var i=0; i<santas.length; i++) {
       var santa = santas[i],
           recipient;
 
       // Assign santa to the person next to them, and increment +1 for each year, to avoid assigning to self and avoid duplicate recipients
-      if(i+years < santas.length) {
-        recipient = santas[i+years];
+      if(i+year < santas.length) {
+        recipient = santas[i+year];
       } else {
-        recipient = santas[(i+years - santas.length)];
+        recipient = santas[(i+year - santas.length)];
       }
 
       matches[santa] = recipient;
     }
-    console.log(matches)
-    years ++
-    matches.year = years
+    years[year] = matches
+    year ++
   }
+  return years
 }
 
 assignSantas2(['Sean', 'Winnie', 'Brian', 'Amy', 'Samir', 'Joe', 'Bethany', 'Bruno', 'Anna', 'Matthew', 'Lucas', 'Gabriel', 'Martha'])
+
+
+
+
+
+// Secret Santa Part 3
+
+
+// As your extended family has grown, members have gotten married and/or had children. Families usually get gifts for members of their immediate family, so it doesn’t make a lot of sense for anyone to be a Secret Santa for a member of their immediate family (spouse, parents, or children). Modify your program to take this constraint into consideration when choosing Secret Santas.
