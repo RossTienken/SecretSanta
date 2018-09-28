@@ -5,7 +5,7 @@
 
 
 
-const assignSantas = (array) => {
+const assignSantas1 = (array) => {
   let matches = [];
 
   if(!array || !array.length) {
@@ -50,7 +50,7 @@ const assignSantas2 = (array) => {
   let santas = array.slice();
 
   let year = 1
-  while (year < 6) {
+  while (year <= 3) {
     let matches = {};
     for(let i=0; i<santas.length; i++) {
       let santa = santas[i],
@@ -71,9 +71,6 @@ const assignSantas2 = (array) => {
   return years
 }
 
-assignSantas2(['Sean', 'Winnie', 'Brian', 'Amy', 'Samir', 'Joe', 'Bethany', 'Bruno', 'Anna', 'Matthew', 'Lucas', 'Gabriel', 'Martha'])
-
-
 
 
 
@@ -84,6 +81,10 @@ assignSantas2(['Sean', 'Winnie', 'Brian', 'Amy', 'Samir', 'Joe', 'Bethany', 'Bru
 
 
 const assignSantas3 = (people) => {
+  if(!people || !people.length) {
+    return null;
+  }
+
   let shuffle = function shuffle(array) {
     let currentIndex = array.length,
       temporaryValue,
@@ -143,3 +144,10 @@ assignSantas3([
   {name: 'Joe', family: ['Amy'], current: '', past: 'Sean'},
   {name: 'Bruno',family: [],current: '',past: 'Brian'}
 ])
+
+
+module.exports = {
+  assignSantas1,
+  assignSantas2,
+  assignSantas3,
+}

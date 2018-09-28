@@ -1,0 +1,23 @@
+{
+  "name": "SecretSanta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RossTienken/SecretSanta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RossTienken/SecretSanta/issues"
+  },
+  "homepage": "https://github.com/RossTienken/SecretSanta#readme",
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
