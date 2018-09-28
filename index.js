@@ -28,7 +28,48 @@ const assignSantas = (array) => {
     matches.push({ "santa": santa, "recipient": recipient });
   }
 
-  return matches
+  console.log(matches)
 }
 
-assignSantas(['Paul', 'Emma', 'Tim', 'Bob', 'Lauren'])
+
+
+
+
+// Secret Santa Part 2
+
+// After the third year of having the Secret Santa gift exchange, you’ve heard complaints of having the same Secret Santa year after year. Modify your program so that a family member can only have the same Secret Santa once every 3 years.
+
+
+const assignSantas2 = (array) => {
+  let matches = {
+    year: 1
+  };
+
+  if(!array || !array.length) {
+    return null;
+  }
+
+  let santas = array.slice();
+
+  let years = 1
+  while (years < 6) {
+    for(var i=0; i<santas.length; i++) {
+      var santa = santas[i],
+          recipient;
+
+      // Assign santa to the person next to them, and increment +1 for each year, to avoid assigning to self and avoid duplicate recipients
+      if(i+years < santas.length) {
+        recipient = santas[i+years];
+      } else {
+        recipient = santas[(i+years - santas.length)];
+      }
+
+      matches[santa] = recipient;
+    }
+    console.log(matches)
+    years ++
+    matches.year = years
+  }
+}
+
+assignSantas2(['Sean', 'Winnie', 'Brian', 'Amy', 'Samir', 'Joe', 'Bethany', 'Bruno', 'Anna', 'Matthew', 'Lucas', 'Gabriel', 'Martha'])
